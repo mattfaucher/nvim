@@ -110,13 +110,7 @@ _G.packer_plugins = {
     path = "/local/home/mfauch/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["nvim-autopairs"] = {
-    loaded = true,
-    path = "/local/home/mfauch/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
-    url = "https://github.com/windwp/nvim-autopairs"
-  },
   ["nvim-cmp"] = {
-    config = { "\27LJ\2\nè\1\0\0\b\0\a\0\0146\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\2\3\1\18\4\2\0009\2\4\2'\5\5\0009\6\6\0B\6\1\0A\2\2\1K\0\1\0\20on_confirm_done\17confirm_done\aon\nevent\bcmp\"nvim-autopairs.completion.cmp\frequire\0" },
     loaded = true,
     path = "/local/home/mfauch/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
@@ -153,7 +147,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["tabline.nvim"] = {
-    config = { "\27LJ\2\n“\3\0\0\5\0\r\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\0035\4\a\0=\4\b\3=\3\t\2B\0\2\0016\0\n\0009\0\v\0'\2\f\0B\0\2\1K\0\1\0ä\1\t\t\tset guioptions-=e \" Use showtabline in gui vim\n\t\t\tset sessionoptions+=tabpages,globals \" store tabpages and globals in session\n\t\t\t\bcmd\bvim\foptions\25component_separators\1\3\0\0\bÓÇ±\bÓÇ≥\23section_separators\1\0\b\15show_bufnr\1\18show_devicons\2\21show_tabs_always\2\27max_bufferline_percent\3B\19show_tabs_only\1\20modified_italic\1\18modified_icon\ax \23show_filename_only\2\1\3\0\0\bÓÇ∞\bÓÇ≤\1\0\1\venable\2\nsetup\ftabline\frequire\0" },
+    config = { "\27LJ\2\nÌ\3\0\0\5\0\r\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\0035\4\a\0=\4\b\3=\3\t\2B\0\2\0016\0\n\0009\0\v\0'\2\f\0B\0\2\1K\0\1\0•\1            set guioptions-=e \" Use showtabline in gui vim\n            set sessionoptions+=tabpages,globals \" store tabpages and globals in session\n            \bcmd\bvim\foptions\25component_separators\1\3\0\0\bÓÇ±\bÓÇ≥\23section_separators\1\0\b\20modified_italic\1\18modified_icon\ax \23show_filename_only\2\15show_bufnr\1\18show_devicons\2\21show_tabs_always\2\27max_bufferline_percent\3B\19show_tabs_only\1\1\3\0\0\bÓÇ∞\bÓÇ≤\1\0\1\venable\2\nsetup\ftabline\frequire\0" },
     loaded = true,
     path = "/local/home/mfauch/.local/share/nvim/site/pack/packer/start/tabline.nvim",
     url = "https://github.com/kdheepak/tabline.nvim"
@@ -171,18 +165,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: tabline.nvim
+time([[Config for tabline.nvim]], true)
+try_loadstring("\27LJ\2\nÌ\3\0\0\5\0\r\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\0035\4\a\0=\4\b\3=\3\t\2B\0\2\0016\0\n\0009\0\v\0'\2\f\0B\0\2\1K\0\1\0•\1            set guioptions-=e \" Use showtabline in gui vim\n            set sessionoptions+=tabpages,globals \" store tabpages and globals in session\n            \bcmd\bvim\foptions\25component_separators\1\3\0\0\bÓÇ±\bÓÇ≥\23section_separators\1\0\b\20modified_italic\1\18modified_icon\ax \23show_filename_only\2\15show_bufnr\1\18show_devicons\2\21show_tabs_always\2\27max_bufferline_percent\3B\19show_tabs_only\1\1\3\0\0\bÓÇ∞\bÓÇ≤\1\0\1\venable\2\nsetup\ftabline\frequire\0", "config", "tabline.nvim")
+time([[Config for tabline.nvim]], false)
 -- Config for: Comment.nvim
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
 time([[Config for Comment.nvim]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-try_loadstring("\27LJ\2\nè\1\0\0\b\0\a\0\0146\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\2\3\1\18\4\2\0009\2\4\2'\5\5\0009\6\6\0B\6\1\0A\2\2\1K\0\1\0\20on_confirm_done\17confirm_done\aon\nevent\bcmp\"nvim-autopairs.completion.cmp\frequire\0", "config", "nvim-cmp")
-time([[Config for nvim-cmp]], false)
--- Config for: tabline.nvim
-time([[Config for tabline.nvim]], true)
-try_loadstring("\27LJ\2\n“\3\0\0\5\0\r\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0005\4\4\0=\4\6\0035\4\a\0=\4\b\3=\3\t\2B\0\2\0016\0\n\0009\0\v\0'\2\f\0B\0\2\1K\0\1\0ä\1\t\t\tset guioptions-=e \" Use showtabline in gui vim\n\t\t\tset sessionoptions+=tabpages,globals \" store tabpages and globals in session\n\t\t\t\bcmd\bvim\foptions\25component_separators\1\3\0\0\bÓÇ±\bÓÇ≥\23section_separators\1\0\b\15show_bufnr\1\18show_devicons\2\21show_tabs_always\2\27max_bufferline_percent\3B\19show_tabs_only\1\20modified_italic\1\18modified_icon\ax \23show_filename_only\2\1\3\0\0\bÓÇ∞\bÓÇ≤\1\0\1\venable\2\nsetup\ftabline\frequire\0", "config", "tabline.nvim")
-time([[Config for tabline.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
