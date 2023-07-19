@@ -9,6 +9,20 @@ lsp.ensure_installed({
     'pylsp'
 })
 
+-- Config lsp
+require'lspconfig'.pylsp.setup{
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = {'W391', 'E501'},
+          maxLineLength = 100
+        }
+      }
+    }
+  }
+}
+
 -- Fix undefined global 'vim'
 lsp.nvim_workspace()
 
