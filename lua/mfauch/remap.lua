@@ -9,3 +9,9 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Close current buffer
 vim.keymap.set("n", "<leader>c", vim.cmd.bdelete)
+
+-- Indent niceities
+vim.keymap.set("n", ">", ">>")
+vim.keymap.set("n", "<", "<<")
+vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", "<", "<gv")
