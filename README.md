@@ -20,3 +20,4 @@
 - Tabline.nvim
 - Lualine.nvim
 - Floaterm.nvim
+
