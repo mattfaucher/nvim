@@ -73,18 +73,11 @@ return require('packer').startup(function(use)
 		end,
 		requires = { { 'hoob3rt/lualine.nvim', opt=true }, {'kyazdani42/nvim-web-devicons', opt = true} }
 	},
+	-- Lua statusline
 	use('nvim-lualine/lualine.nvim'),
-
-	use {
-		'glepnir/dashboard-nvim',
-		event = 'VimEnter',
-		config = function()
-			require('dashboard').setup {
-				-- config
-			}
-		end,
-		requires = {'nvim-tree/nvim-web-devicons'}
-	}
+	-- Floating Terminal
+	use 'voldikss/vim-floaterm',
 }
 
 end)
+
