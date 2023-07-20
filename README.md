@@ -26,7 +26,7 @@ git clone git@github.com:mattfaucher/nvim.git
 ```
 7. Open NVIM by running `nvim`
 8. In Normal Mode (hit ESC), type `:PackerSync` and hit enter
-9. Quit of of NVIM with `:q`
+9. Quit out of NVIM with `:q`
 10. Finally reopen NVIM and you should be all set (may need to repeat step 8 if
     you see errors upon opening)
 
