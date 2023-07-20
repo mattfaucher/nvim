@@ -11,13 +11,33 @@
 
 - [Packer](https://github.com/wbthomason/packer.nvim)
 
+## Getting Started
+
+1. [Install NVIM 0.9+](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+2. [Install rip grep](https://github.com/BurntSushi/ripgrep#installation)
+3. Install Python3 (use your preferred method, just make sure it's in your PATH)
+4. [Install NodeJS](https://nodejs.org/en/download/package-manager)
+5. [Install Packer.nvim](https://github.com/wbthomason/packer.nvim#quickstart)
+    - Follow along with the documentation here
+6. Clone this repository (this will create the `nvim` directory for you)
+```sh
+cd ~/.config
+git clone git@github.com:mattfaucher/nvim.git
+```
+7. Open NVIM by running `nvim`
+8. In Normal Mode (hit ESC), type `:PackerSync` and hit enter
+9. Quit of of NVIM with `:q`
+10. Finally reopen NVIM and you should be all set (may need to repeat step 8 if
+    you see errors upon opening)
+
+
 ## Plugins Installed (search for these names on github)
 
-- Telescope.nvim
-- Lsp-Zero.nvim
-- Treesitter.nvim
-- Comment.nvim
-- Tabline.nvim
-- Lualine.nvim
-- Floaterm.nvim
+    - Telescope.nvim
+    - Lsp-Zero.nvim
+    - Treesitter.nvim
+    - Comment.nvim
+    - Tabline.nvim
+    - Lualine.nvim
+    - Floaterm.nvim
 
