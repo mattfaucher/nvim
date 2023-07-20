@@ -70,3 +70,14 @@ See [lsp.lua](https://github.com/mattfaucher/nvim/blob/master/after/plugin/lsp.l
 
 See [tabline.lua](https://github.com/mattfaucher/nvim/blob/master/after/plugin/tabline.lua)
 
+## Installing Treesitter parsers and Language Servers
+
+Mason is used under the hood to handle Language Servers / linters / formatters
+
+Run `:Mason` to open up the menu, alternatively install any language server by
+simply running `:LspInstall <language>`.
+- To find out more commands you can do `:Lsp` and hit tab to see the options.
+
+Same deal for TreeSitter parsers:
+- `:TSInstall <language>` and follow the prompts
+
