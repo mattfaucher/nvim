@@ -7,6 +7,10 @@ vim.keymap.set("t", "<C-k>", vim.cmd.FloatermKill)
 vim.keymap.set("n", "<leader>tfp", function()
     vim.cmd.FloatermNew "python3"
 end)
+-- Open Node shell
+vim.keymap.set("n", "<leader>tfn", function()
+    vim.cmd.FloatermNew "node"
+end)
 
 -- Set float term window dimensions
 vim.g.floaterm_width = 0.8
