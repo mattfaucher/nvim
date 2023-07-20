@@ -7,7 +7,7 @@
 - Python3
 - NodeJS
 
-## Plugin Manager
+### Plugin Manager
 
 - [Packer](https://github.com/wbthomason/packer.nvim)
 
@@ -33,11 +33,38 @@ git clone git@github.com:mattfaucher/nvim.git
 
 ## Plugins Installed (search for these names on github)
 
-    - Telescope.nvim
-    - Lsp-Zero.nvim
-    - Treesitter.nvim
-    - Comment.nvim
-    - Tabline.nvim
-    - Lualine.nvim
-    - Floaterm.nvim
+- Telescope.nvim
+- Lsp-Zero.nvim
+- Treesitter.nvim
+- Comment.nvim
+- Tabline.nvim
+- Lualine.nvim
+- Floaterm.nvim
+
+## Basic Keybinds
+
+The files that correspond to the configurations for the plugins all live inside
+the `/after/plugins` directory. This is where you can find the docs for the
+given plugin and customize it to your liking. This can be as simple as adding a
+keybind for a command you want done a certain way.
+
+### Fuzzy Finding
+
+See [remap.lua](https://github.com/mattfaucher/nvim/blob/master/lua/mfauch/remap.lua)
+
+### Floaterm
+
+See [floaterm.lua](https://github.com/mattfaucher/nvim/blob/master/after/plugin/floaterm.lua)
+
+### Telescope
+
+See [telescope.lua](https://github.com/mattfaucher/nvim/blob/master/after/plugin/telescope.lua)
+
+### LSP
+
+See [lsp.lua](https://github.com/mattfaucher/nvim/blob/master/after/plugin/lsp.lua)
+
+### Tabline
+
+See [tabline.lua](https://github.com/mattfaucher/nvim/blob/master/after/plugin/tabline.lua)
 
