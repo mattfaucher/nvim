@@ -77,6 +77,8 @@ return require('packer').startup(function(use)
     use('nvim-lualine/lualine.nvim'),
     -- Floating Terminal
     use 'voldikss/vim-floaterm',
+    -- Autoclose pairs
+    use 'm4xshen/autoclose.nvim'
 }
 end)
 
