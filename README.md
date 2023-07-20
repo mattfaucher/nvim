@@ -48,10 +48,6 @@ the `/after/plugins` directory. This is where you can find the docs for the
 given plugin and customize it to your liking. This can be as simple as adding a
 keybind for a command you want done a certain way.
 
-### Fuzzy Finding
-
-See [remap.lua](https://github.com/mattfaucher/nvim/blob/master/lua/mfauch/remap.lua)
-
 ### Floaterm
 
 See [floaterm.lua](https://github.com/mattfaucher/nvim/blob/master/after/plugin/floaterm.lua)
