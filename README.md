@@ -50,7 +50,7 @@ keybind for a command you want done a certain way.
 
 Note: whenever you see `<leader>` this is a variable that you can define as a
 prefix to any other keyboard shortcut/combination. In my case I defined it in
-[remap.lua](https://github.com/mattfaucher/nvim/blob/master/after/plugin/remap.lua)
+[remap.lua](https://github.com/mattfaucher/nvim/blob/master/lua/mfauch/remap.lua)
 as a space. So that means I hit space + `<insert any keyboard command or
 combination>`.
 
