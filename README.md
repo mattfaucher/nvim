@@ -31,15 +31,22 @@ git clone git@github.com:mattfaucher/nvim.git
     you see errors upon opening)
 
 
-## Plugins Installed (search for these names on github)
+## Installed Plugins
 
-- Telescope.nvim
-- Lsp-Zero.nvim
-- Treesitter.nvim
-- Comment.nvim
-- Tabline.nvim
-- Lualine.nvim
-- Floaterm.nvim
+### These are the core plugins that make the experience
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim)
+- [treesitter.nvim](https://github.com/nvim-treesitter/nvim-treesitter)
+
+---
+
+### These plugins are additional but useful but not required
+
+- [autoclose.nvim](https://github.com/m4xshen/autoclose.nvim)
+- [comment.nvim](https://github.com/numToStr/Comment.nvim)
+- [tabline.nvim](https://github.com/kdheepak/tabline.nvim)
+- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- [floaterm.nvim](https://github.com/voldikss/vim-floaterm)
 
 ## Basic Keybinds
 
@@ -54,19 +61,19 @@ prefix to any other keyboard shortcut/combination. In my case I defined it in
 as a space. So that means I hit space + `<insert any keyboard command or
 combination>`.
 
-### Floaterm
+### Floaterm Keybinds
 
 See [floaterm.lua](https://github.com/mattfaucher/nvim/blob/master/after/plugin/floaterm.lua)
 
-### Telescope
+### Telescope Keybinds
 
 See [telescope.lua](https://github.com/mattfaucher/nvim/blob/master/after/plugin/telescope.lua)
 
-### LSP
+### LSP Keybinds
 
 See [lsp.lua](https://github.com/mattfaucher/nvim/blob/master/after/plugin/lsp.lua)
 
-### Tabline
+### Tabline Keybinds
 
 See [tabline.lua](https://github.com/mattfaucher/nvim/blob/master/after/plugin/tabline.lua)
 
