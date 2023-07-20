@@ -28,3 +28,5 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "100"
 
+-- Enable pasting from clipboard
+vim.cmd.paste = true

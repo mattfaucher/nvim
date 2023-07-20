@@ -1,7 +1,7 @@
 -- Leader key
 vim.g.mapleader = " "
--- Back to explorer
-vim.keymap.set("n", "<leader>fe", vim.cmd.Ex)
+-- Open horizontal explorer
+vim.keymap.set("n", "<leader>fe", vim.cmd.Hexplore)
 
 -- Jump with cursor in center of screen
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
