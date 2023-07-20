@@ -48,6 +48,12 @@ the `/after/plugins` directory. This is where you can find the docs for the
 given plugin and customize it to your liking. This can be as simple as adding a
 keybind for a command you want done a certain way.
 
+Note: whenever you see `<leader>` this is a variable that you can define as a
+prefix to any other keyboard shortcut/combination. In my case I defined it in
+[remap.lua](https://github.com/mattfaucher/nvim/blob/master/after/plugin/remap.lua)
+as a space. So that means I hit space + <insert any keyboard command or
+combination>.
+
 ### Floaterm
 
 See [floaterm.lua](https://github.com/mattfaucher/nvim/blob/master/after/plugin/floaterm.lua)
