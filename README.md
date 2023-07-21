@@ -22,7 +22,7 @@
 6. Clone this repository (this will create the `nvim` directory for you)
 ```sh
 cd ~/.config
-git clone git@github.com:mattfaucher/nvim.git
+git clone https://github.com/mattfaucher/nvim.git
 ```
 7. Open NVIM by running `nvim`
 8. In Normal Mode (hit ESC), type `:PackerSync` and hit enter
