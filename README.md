@@ -6,6 +6,9 @@
 - rip grep
 - Python3
 - NodeJS
+- [NerdFont](https://www.nerdfonts.com/)
+    - [How to install](https://docs.rockylinux.org/books/nvchad/nerd_fonts/)
+    - Enable this for your terminal application
 
 ### Plugin Manager
 
