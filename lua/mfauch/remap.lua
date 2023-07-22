@@ -15,3 +15,6 @@ vim.keymap.set("n", ">", ">>")
 vim.keymap.set("n", "<", "<<")
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")
+
+-- Show references window
+vim.keymap.set("n", "<leader>gr", vim.cmd.NiceReference)

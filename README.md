@@ -51,6 +51,7 @@ git clone https://github.com/mattfaucher/nvim.git
 - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [floaterm.nvim](https://github.com/voldikss/vim-floaterm)
 - [netrw.nvim](https://github.com/prichrd/netrw.nvim)
+- [nice-reference.nvim](https://github.com/wiliamks/nice-reference.nvim)
 
 ## Basic Keybinds
 
