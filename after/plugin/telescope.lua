@@ -1,6 +1,20 @@
 local builtin = require('telescope.builtin')
+local telescope = require('telescope')
+
+telescope.setup{
+    pickers = {
+        find_files = {
+            hidden = true
+        }
+    },
+    defaults = {
+        file_ignore_patterns = {
+            '.git/', '.cache', '%.o', '%.a', '%.out', '%.class',
+        }
+    }
+}
+
 -- Kebindings
--- -- --
 -- Find Files
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 -- Find Git files
