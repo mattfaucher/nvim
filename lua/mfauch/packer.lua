@@ -10,9 +10,9 @@ return require('packer').startup(function(use)
     -- or                            , branch = '0.1.x',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
-  -- Color Scheme
+  -- Color Schemes
   use 'navarasu/onedark.nvim'
-  require('onedark').load()
+  use "rebelot/kanagawa.nvim"
 
   -- TreeSitter
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })

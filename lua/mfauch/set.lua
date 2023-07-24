@@ -1,3 +1,7 @@
+-- set colorscheme
+vim.cmd('colorscheme onedark')
+-- vim.cmd('colorscheme kanagawa')
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
