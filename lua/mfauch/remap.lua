@@ -17,8 +17,8 @@ vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")
 
 -- Wrap word in double/single quotes
-vim.keymap.set("n", '<leader>""', 'ciw"<C-r>"')
-vim.keymap.set("n", "<leader>''", "ciw'<C-r>'")
+vim.keymap.set("n", '<leader>""', 'ciw"<C-r>""') -- double quote
+vim.keymap.set("n", "<leader>''", "ciw'<C-r>\"'") -- single quote
 
 -- Show references window
 vim.keymap.set("n", "<leader>gr", vim.cmd.NiceReference)
