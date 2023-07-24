@@ -43,7 +43,7 @@ git clone https://github.com/mattfaucher/nvim.git
 
 ---
 
-### These plugins are additional but useful but not required
+### These plugins are additional but not required
 
 - [autoclose.nvim](https://github.com/m4xshen/autoclose.nvim)
 - [comment.nvim](https://github.com/numToStr/Comment.nvim)
