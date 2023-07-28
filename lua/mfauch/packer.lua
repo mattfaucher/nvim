@@ -112,6 +112,8 @@ return require('packer').startup(function(use)
           auto_choose = false, -- Go to reference if there is only one
         })
       end
-    }
+    },
+    -- Fugitive
+    use 'tpope/vim-fugitive'
   }
 end)
