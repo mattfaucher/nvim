@@ -65,7 +65,7 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>fmt", function()
     vim.lsp.buf.format {
       formatting_options = {
-        tabSize = 2,
+        tabSize = 4,
         insertSpaces = true,
         trimTrailingWhitespace = true
       }
