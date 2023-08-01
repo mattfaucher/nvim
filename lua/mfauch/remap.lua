@@ -25,3 +25,9 @@ vim.keymap.set("v", "<leader>''", "c'<C-r>\"'") -- single quote
 
 -- Show references window
 vim.keymap.set("n", "<leader>gr", vim.cmd.NiceReference)
+
+-- Switch windows when in vertical/horizontal split
+vim.keymap.set("n", "<leader>l", function() vim.cmd.wincmd "l" end)
+vim.keymap.set("n", "<leader>h", function() vim.cmd.wincmd "h" end)
+vim.keymap.set("n", "<leader>j", function() vim.cmd.wincmd "j" end)
+vim.keymap.set("n", "<leader>k", function() vim.cmd.wincmd "k" end)
