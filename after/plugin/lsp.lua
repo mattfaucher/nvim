@@ -6,7 +6,8 @@ lsp.ensure_installed({
   'tsserver',
   'eslint',
   'lua_ls',
-  'pylsp'
+  'pylsp',
+  'perlnavigator'
 })
 
 -- Config lsp
@@ -22,6 +23,17 @@ require 'lspconfig'.pylsp.setup {
     }
   }
 }
+
+require 'lspconfig'.perlnavigator.setup {
+    settings = {
+        perlnavigator = {
+            perlPath = 'perl',
+            enableWarnings = true,
+            filetypes = { 'Config' }
+        }
+    }
+}
+
 
 -- Fix undefined global 'vim'
 lsp.nvim_workspace()
