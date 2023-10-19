@@ -25,13 +25,13 @@ require 'lspconfig'.pylsp.setup {
 }
 
 require 'lspconfig'.perlnavigator.setup {
-    settings = {
-        perlnavigator = {
-            perlPath = 'perl',
-            enableWarnings = true,
-            filetypes = { 'Config' }
-        }
+  settings = {
+    perlnavigator = {
+      perlPath = 'perl',
+      enableWarnings = true,
+      filetypes = { 'Config' }
     }
+  }
 }
 
 
