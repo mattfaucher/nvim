@@ -31,6 +31,10 @@ return require('packer').startup(function(use)
         end,
       },
       { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+      {
+          'mfussenegger/nvim-jdtls',
+          disable = false
+      },
 
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' },     -- Required
