@@ -122,7 +122,7 @@ end)
 lsp.setup()
 
 vim.diagnostic.config( {
-  virtual_text = false
+  virtual_text = true
 })
 
 local ns = vim.api.nvim_create_namespace('CurlineDiag')
