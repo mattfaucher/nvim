@@ -2,6 +2,36 @@ local lsp = require("lsp-zero")
 
 lsp.preset("recommended")
 
+-- Configure Brazil
+function BrazilWorkspaceRoot()
+  local working_directory = vim.fn.getcwd()
+  local parent_directory = working_directory:gsub("[^/]+$", ""):gsub("[^/]+/$", "")
+  return parent_directory
+end
+
+function BrazilOpenJDKLocation()
+  local workspace_directory = BrazilWorkspaceRoot()
+  local jdk_path = ""
+  if vim.fn.isdirectory(workspace_directory .. "env/JDK17-1.0") then
+    jdk_path = workspace_directory .. "env/JDK17-1.0"
+    return jdk_path
+  elseif vim.fn.isdirectory(workspace_directory .. "env/JDK21-1.0") then
+    jdk_path = workspace_directory .. "env/JDK21-1.0"
+    return jdk_path
+  end
+
+  if jdk_path == "" or jdk_path == nil then
+    return "/apollo/env/EnvImprovement/jdk"
+  end
+end
+
+function SetBrazilJDKHome()
+  vim.env.JDK_HOME = BrazilOpenJDKLocation()
+  print(vim.env.JDK_HOME)
+end
+
+SetBrazilJDKHome()
+
 lsp.ensure_installed({
   'tsserver',
   'eslint',
@@ -32,6 +62,10 @@ require 'lspconfig'.perlnavigator.setup {
       filetypes = { 'Config' }
     }
   }
+}
+
+require('lspconfig').jdtls.setup {
+    settings = {}
 }
 
 -- Fix undefined global 'vim'
