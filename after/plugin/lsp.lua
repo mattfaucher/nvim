@@ -12,22 +12,22 @@ end
 function BrazilOpenJDKLocation()
   local workspace_directory = BrazilWorkspaceRoot()
   local jdk_path = ""
+  -- Determine which version of Java exists and use that
   if vim.fn.isdirectory(workspace_directory .. "env/JDK17-1.0") then
-    jdk_path = workspace_directory .. "env/JDK17-1.0"
-    return jdk_path
+    return workspace_directory .. "env/JDK17-1.0"
   elseif vim.fn.isdirectory(workspace_directory .. "env/JDK21-1.0") then
-    jdk_path = workspace_directory .. "env/JDK21-1.0"
-    return jdk_path
+    return workspace_directory .. "env/JDK21-1.0"
+  elseif vim.fn.isdirectory(workspace_directory .. "env/JDK8-1.0") then
+    return workspace_directory .. "env/JDK8-1.0"
   end
 
   if jdk_path == "" or jdk_path == nil then
-    return "/apollo/env/EnvImprovement/jdk"
+    return "/apollo/env/EnvImprovement/jdk1.8"
   end
 end
 
 function SetBrazilJDKHome()
   vim.env.JDK_HOME = BrazilOpenJDKLocation()
-  print(vim.env.JDK_HOME)
 end
 
 SetBrazilJDKHome()
