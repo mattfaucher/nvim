@@ -52,7 +52,6 @@ return require('packer').startup(function(use)
     },
     {
       'mfussenegger/nvim-jdtls',
-      disable = false
     },
 
     -- Autocompletion
