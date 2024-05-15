@@ -13,8 +13,11 @@ telescope.setup {
     },
     -- Configure layout of interface
     sorting_strategy = 'ascending', -- display results top -> bottom
+    layout_strategy = 'vertical',
     layout_config = {
       prompt_position = 'top',
+      width = 0.9,
+      height = 0.9
     }
   }
 }
@@ -25,7 +28,7 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 -- Find Git files
 vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
 -- Grep entire working directory for any term
-vim.keymap.set('n', '<leader>fs', function()
-  builtin.grep_string({ search = vim.fn.input("Grep > ") })
+vim.keymap.set('n', '<leader>fs', function ()
+    builtin.live_grep({ cwd = vim.fn.getcwd() })
 end)
 vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
