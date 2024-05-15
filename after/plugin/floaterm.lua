@@ -13,6 +13,6 @@ vim.keymap.set("n", "<leader>tfn", function()
 end)
 
 -- Set float term window dimensions
-vim.g.floaterm_width = 0.95
-vim.g.floaterm_height = 0.95
+vim.g.floaterm_width = 0.9
+vim.g.floaterm_height = 0.9
 vim.g.floaterm_position = "center"
