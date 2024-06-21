@@ -35,7 +35,7 @@ return require('packer').startup(function(use)
         }
       end,
       run = function()
-        pcll(vim.cmd, 'MasonUpdate')
+        pcall(vim.cmd, 'MasonUpdate')
       end,
     },
     {
@@ -146,9 +146,11 @@ use {
     "nvim-java/lua-async-await",
     "nvim-java/nvim-java-core",
     "nvim-java/nvim-java-test",
-    "nvim-java/nvim-java-dap"
+    "nvim-java/nvim-java-dap",
+    "nvim-java/nvim-java-refactor",
   }
 }
 use "MunifTanjim/nui.nvim"
 use "mfussenegger/nvim-dap"
+use "ojroques/nvim-osc52"
 end)
