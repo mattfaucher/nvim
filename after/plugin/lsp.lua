@@ -57,6 +57,7 @@ lsp.ensure_installed({
   'lua_ls',
   'pylsp',
   'perlnavigator',
+  'gopls',
 })
 
 -- Config lsp
