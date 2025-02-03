@@ -1,5 +1,5 @@
 function SetColorScheme(color)
-	color = color or "kanagawa"
+	color = color or "onedark"
 	vim.cmd.colorscheme(color)
 
 	-- For Transparent backgrounds
