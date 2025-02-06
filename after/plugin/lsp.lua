@@ -61,6 +61,7 @@ lsp.ensure_installed({
 
 -- Config lsp
 require('lspconfig').tsserver.setup {
+    autostart = true,
     settings = {
         typescript = {
             format = {
@@ -71,6 +72,10 @@ require('lspconfig').tsserver.setup {
         },
     }
 }
+
+require('lspconfig').eslint.setup({
+    autostart = false
+})
 
 require 'lspconfig'.pylsp.setup {
     settings = {
