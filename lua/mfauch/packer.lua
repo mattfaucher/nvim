@@ -153,4 +153,11 @@ use {
 use "MunifTanjim/nui.nvim"
 use "mfussenegger/nvim-dap"
 use "ojroques/nvim-osc52"
+
+-- Add brazil-config --
+use({
+	"ssh://git.amazon.com/pkg/NinjaHooks",
+	branch = "mainline",
+	rtp = "configuration/vim/amazon/brazil-config",
+})
 end)
