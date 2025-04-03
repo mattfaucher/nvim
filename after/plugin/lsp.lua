@@ -90,19 +90,27 @@ require 'lspconfig'.pylsp.setup {
     }
 }
 
-require 'lspconfig'.perlnavigator.setup {
-    settings = {
-        perlnavigator = {
-            perlPath = 'perl',
-            enableWarnings = true,
-            filetypes = { 'Config' }
-        }
-    }
-}
-
 require('lspconfig').jdtls.setup {
     settings = {}
 }
+
+local configs = require 'lspconfig.configs'
+
+if not configs.barium then
+	configs.barium = {
+		default_config = {
+			cmd = { "barium" },
+			filetypes = { "brazil-config" },
+			root_dir = function(fname)
+				return require 'lspconfig'.util.find_git_ancestor(fname)
+			end,
+			settings = {},
+		},
+	}
+end
+
+require 'lspconfig'.barium.setup({})
+vim.filetype.add({ filename = { Config = "brazil-config" } })
 
 -- Fix undefined global 'vim'
 lsp.nvim_workspace()
