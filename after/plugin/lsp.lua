@@ -51,7 +51,7 @@ function Bemol()
 end
 
 lsp.ensure_installed({
-    'tsserver',
+    'ts_ls',
     'eslint',
     'lua_ls',
     'pylsp',
@@ -60,7 +60,7 @@ lsp.ensure_installed({
 })
 
 -- Config lsp
-require('lspconfig').tsserver.setup {
+require('lspconfig').ts_ls.setup {
     autostart = true,
     settings = {
         typescript = {
