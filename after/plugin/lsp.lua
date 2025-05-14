@@ -88,6 +88,7 @@ require('lspconfig').jdtls.setup {
 require('lspconfig').mdx_analyzer.setup({
     filetypes = { "markdown.mdx" },
 })
+vim.filetype.add({ extension = { mdx = "markdown.mdx" } })
 
 
 local configs = require 'lspconfig.configs'
