@@ -50,15 +50,6 @@ function Bemol()
     end
 end
 
-lsp.ensure_installed({
-    'ts_ls',
-    'eslint',
-    'lua_ls',
-    'pylsp',
-    'perlnavigator',
-    'gopls',
-})
-
 -- Config lsp
 require('lspconfig').ts_ls.setup {
     autostart = true,
@@ -94,19 +85,24 @@ require('lspconfig').jdtls.setup {
     settings = {}
 }
 
+require('lspconfig').mdx_analyzer.setup({
+    filetypes = { "markdown.mdx" },
+})
+
+
 local configs = require 'lspconfig.configs'
 
 if not configs.barium then
-	configs.barium = {
-		default_config = {
-			cmd = { "barium" },
-			filetypes = { "brazil-config" },
-			root_dir = function(fname)
-				return require 'lspconfig'.util.find_git_ancestor(fname)
-			end,
-			settings = {},
-		},
-	}
+    configs.barium = {
+        default_config = {
+            cmd = { "barium" },
+            filetypes = { "brazil-config" },
+            root_dir = function(fname)
+                return require 'lspconfig'.util.find_git_ancestor(fname)
+            end,
+            settings = {},
+        },
+    }
 end
 
 require 'lspconfig'.barium.setup({})
