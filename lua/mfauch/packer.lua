@@ -13,6 +13,7 @@ return require('packer').startup(function(use)
   -- Color Schemes
   use 'navarasu/onedark.nvim'
   use "rebelot/kanagawa.nvim"
+  use 'projekt0n/github-nvim-theme'
 
   -- TreeSitter
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
