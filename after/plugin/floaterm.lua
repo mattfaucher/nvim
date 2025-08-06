@@ -12,7 +12,7 @@ vim.keymap.set("t", "<C-n>", vim.cmd.FloatermNext)
 vim.keymap.set("t", "<C-p>", vim.cmd.FloatermPrev)
 
 -- New floaterm
-vim.keymap.set("t", "<C-c>", vim.cmd.FloatermNew)
+vim.keymap.set("t", "<C-w>", vim.cmd.FloatermNew)
 
 -- Open Python shell
 vim.keymap.set("n", "<leader>tfp", function()
