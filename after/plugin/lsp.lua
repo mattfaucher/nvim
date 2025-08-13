@@ -68,19 +68,6 @@ require('lspconfig').eslint.setup({
     autostart = false
 })
 
-require 'lspconfig'.pylsp.setup {
-    settings = {
-        pylsp = {
-            plugins = {
-                pycodestyle = {
-                    ignore = { 'W391', 'E501' },
-                    maxLineLength = 100
-                }
-            }
-        }
-    }
-}
-
 require('lspconfig').jdtls.setup {
     settings = {}
 }
