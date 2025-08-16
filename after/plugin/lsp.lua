@@ -39,7 +39,7 @@ end
 require("mason").setup()
 local mason_lspconfig = require("mason-lspconfig")
 mason_lspconfig.setup({
-    ensure_installed = { "gopls", "tsserver", "lua_ls", "jdtls" },
+    ensure_installed = { "gopls", "ts_ls", "lua_ls", "jdtls" },
     automatic_installation = true,
 })
 

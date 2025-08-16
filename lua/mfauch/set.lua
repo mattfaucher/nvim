@@ -28,6 +28,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "100"
+vim.opt.cursorline = true
 
 -- Enable pasting from clipboard
 vim.cmd.paste = true
