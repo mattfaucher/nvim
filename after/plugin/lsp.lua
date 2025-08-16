@@ -1,140 +1,102 @@
-local lsp = require("lsp-zero")
+local lsp = require("lsp-zero").preset("recommended")
 
-lsp.preset("recommended")
-
--- Configure Brazil
-function BrazilWorkspaceRoot()
-    local working_directory = vim.fn.getcwd()
-    local parent_directory = working_directory:gsub("[^/]+$", ""):gsub("[^/]+/$", "")
-    return parent_directory
+-- Configure Brazil JDK
+local function BrazilWorkspaceRoot()
+    local cwd = vim.fn.getcwd()
+    local parent = cwd:gsub("[^/]+$", ""):gsub("[^/]+/$", "")
+    return parent
 end
 
-function BrazilOpenJDKLocation()
-    local workspace_directory = BrazilWorkspaceRoot()
-    local jdk_path = ""
-    -- Determine which version of Java exists and use that
-    if vim.fn.isdirectory(workspace_directory .. "env/JDK17-1.0") then
-        return workspace_directory .. "env/JDK17-1.0"
-    elseif vim.fn.isdirectory(workspace_directory .. "env/JDK21-1.0") then
-        return workspace_directory .. "env/JDK21-1.0"
-    elseif vim.fn.isdirectory(workspace_directory .. "env/JDK8-1.0") then
-        return workspace_directory .. "env/JDK8-1.0"
+local function BrazilOpenJDKLocation()
+    local ws = BrazilWorkspaceRoot()
+    if vim.fn.isdirectory(ws .. "env/JDK17-1.0") then
+        return ws .. "env/JDK17-1.0"
+    elseif vim.fn.isdirectory(ws .. "env/JDK21-1.0") then
+        return ws .. "env/JDK21-1.0"
+    elseif vim.fn.isdirectory(ws .. "env/JDK8-1.0") then
+        return ws .. "env/JDK8-1.0"
     end
-
-    if jdk_path == "" or jdk_path == nil then
-        return "/apollo/env/EnvImprovement/jdk1.8"
-    end
+    return "/apollo/env/EnvImprovement/jdk1.8"
 end
 
-function SetBrazilJDKHome()
-    vim.env.JDK_HOME = BrazilOpenJDKLocation()
-end
+vim.env.JDK_HOME = BrazilOpenJDKLocation()
 
-SetBrazilJDKHome()
-
-function Bemol()
+-- Add workspace folders from .bemol
+local function Bemol()
     local bemol_dir = vim.fs.find({ '.bemol' }, { upward = true, type = 'directory' })[1]
-    local ws_folders_lsp = {}
     if bemol_dir then
         local file = io.open(bemol_dir .. '/ws_root_folders', 'r')
         if file then
             for line in file:lines() do
-                table.insert(ws_folders_lsp, line)
+                vim.lsp.buf.add_workspace_folder(line)
             end
             file:close()
         end
     end
-
-    for _, line in ipairs(ws_folders_lsp) do
-        vim.lsp.buf.add_workspace_folder(line)
-    end
 end
 
--- Config lsp
-require('lspconfig').ts_ls.setup {
-    autostart = true,
-    settings = {
-        typescript = {
-            format = {
-                indentSize = 2,
-                tabSize = 2,
-                convertTabsToSpaces = true
-            }
-        },
-    }
-}
-
-require('lspconfig').eslint.setup({
-    autostart = false
+-- Setup Mason and LSP servers
+require("mason").setup()
+local mason_lspconfig = require("mason-lspconfig")
+mason_lspconfig.setup({
+    ensure_installed = { "gopls", "tsserver", "lua_ls", "jdtls" },
+    automatic_installation = true,
 })
 
-require('lspconfig').jdtls.setup {
-    settings = {}
-}
-
+-- Additional servers
+require('lspconfig').eslint.setup({ autostart = false })
 require('lspconfig').mdx_analyzer.setup({
     filetypes = { "markdown.mdx" },
 })
 vim.filetype.add({ extension = { mdx = "markdown.mdx" } })
 
-
-local configs = require 'lspconfig.configs'
-
+-- Custom Barium LSP
+local configs = require('lspconfig.configs')
 if not configs.barium then
     configs.barium = {
         default_config = {
             cmd = { "barium" },
             filetypes = { "brazil-config" },
             root_dir = function(fname)
-                return require 'lspconfig'.util.find_git_ancestor(fname)
+                return require('lspconfig.util').find_git_ancestor(fname)
             end,
             settings = {},
         },
     }
 end
-
-require 'lspconfig'.barium.setup({})
+require('lspconfig').barium.setup({})
 vim.filetype.add({ filename = { Config = "brazil-config" } })
 
--- Fix undefined global 'vim'
+-- Enable Lua runtime for nvim config
 lsp.nvim_workspace()
 
+-- nvim-cmp setup
 local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-Space>'] = cmp.mapping.complete(),
-})
-
-
 lsp.setup_nvim_cmp({
-    mapping = cmp_mappings
+    mapping = lsp.defaults.cmp_mappings({
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-Space>'] = cmp.mapping.complete(),
+    })
 })
 
 lsp.set_preferences({
     suggest_lsp_servers = false,
-    sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
-    }
+    sign_icons = { error = 'E', warn = 'W', hint = 'H', info = 'I' }
 })
 
-
+-- Keymaps and Bemol workspace
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-    vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-    -- Format the file & save
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
+    vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
+    vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
+    vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
     vim.keymap.set("n", "<leader>fmt", function()
         vim.lsp.buf.format {
             formatting_options = {
@@ -148,12 +110,10 @@ lsp.on_attach(function(client, bufnr)
     Bemol()
 end)
 
-lsp.setup()
+-- Diagnostics
+vim.diagnostic.config({ virtual_text = true })
 
-vim.diagnostic.config({
-    virtual_text = true
-})
-
+-- Curline diagnostics
 local ns = vim.api.nvim_create_namespace('CurlineDiag')
 vim.opt.updatetime = 100
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -167,13 +127,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 local diagnostics = vim.diagnostic.get(args.buf, { lnum = curline - 1 })
                 local virt_texts = { { (' '):rep(4) } }
                 for _, diag in ipairs(diagnostics) do
-                    virt_texts[#virt_texts + 1] = { diag.message, 'Diagnostic' .. hi[diag.severity] }
+                    virt_texts[#virt_texts + 1] = { diag.message, 'Diagnostic'..hi[diag.severity] }
                 end
-                vim.api.nvim_buf_set_extmark(args.buf, ns, curline - 1, 0, {
-                    virt_text = virt_texts,
-                    hl_mode = 'combine'
-                })
+                vim.api.nvim_buf_set_extmark(args.buf, ns, curline - 1, 0, { virt_text = virt_texts, hl_mode = 'combine' })
             end
         })
     end
 })
+
+-- Finalize LSP setup
+lsp.setup()
