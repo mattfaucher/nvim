@@ -70,13 +70,13 @@ vim.filetype.add({ filename = { Config = "brazil-config" } })
 -- Enable Lua runtime for nvim config
 lsp.nvim_workspace()
 
--- nvim-cmp setup
-local cmp = require('cmp')
+-- Set up nvim-cmp 
+local cmp = require("cmp")
 lsp.setup_nvim_cmp({
     mapping = lsp.defaults.cmp_mappings({
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<C-Space>'] = cmp.mapping.complete(),
-    })
+    }),
 })
 
 lsp.set_preferences({
