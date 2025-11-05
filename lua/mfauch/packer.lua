@@ -25,7 +25,7 @@ return require('packer').startup(function(use)
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
         requires = {
-            { 'neovim/nvim-lspconfig' }, -- LSP support
+            { 'neovim/nvim-lspconfig' },   -- LSP support
             {
                 'williamboman/mason.nvim', -- Mason installer
                 run = function() pcall(vim.cmd, 'MasonUpdate') end
@@ -114,18 +114,6 @@ return require('packer').startup(function(use)
 
     -- Fugitive
     use 'tpope/vim-fugitive'
-
-    -- nvim-java plugins
-    use {
-        'nvim-java/nvim-java',
-        requires = {
-            "nvim-java/lua-async-await",
-            "nvim-java/nvim-java-core",
-            "nvim-java/nvim-java-test",
-            "nvim-java/nvim-java-dap",
-            "nvim-java/nvim-java-refactor",
-        }
-    }
 
     -- DAP + utilities
     use "MunifTanjim/nui.nvim"

@@ -31,3 +31,10 @@ vim.keymap.set("n", "<leader>l", function() vim.cmd.wincmd "l" end)
 vim.keymap.set("n", "<leader>h", function() vim.cmd.wincmd "h" end)
 vim.keymap.set("n", "<leader>j", function() vim.cmd.wincmd "j" end)
 vim.keymap.set("n", "<leader>k", function() vim.cmd.wincmd "k" end)
+
+
+-- Toggle paste mode
+vim.keymap.set("n", "<leader>p", function()
+    vim.opt.paste = not vim.opt.paste:get()
+    print("paste mode: " .. (vim.opt.paste:get() and "on" or "off"))
+end, { desc = "Toggle paste mode" })

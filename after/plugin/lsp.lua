@@ -39,8 +39,13 @@ end
 require("mason").setup()
 local mason_lspconfig = require("mason-lspconfig")
 mason_lspconfig.setup({
-    ensure_installed = { "gopls", "ts_ls", "lua_ls", "jdtls" },
+    ensure_installed = { "gopls", "ts_ls", "lua_ls" },
     automatic_installation = true,
+    handlers = {
+        function(server_name)
+            require('lspconfig')[server_name].setup({})
+        end,
+    }
 })
 
 -- Additional servers
@@ -137,3 +142,28 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- Finalize LSP setup
 lsp.setup()
+
+-- Configure jdtls separately
+require('lspconfig').jdtls.setup({
+    cmd = { 'jdtls' },
+    settings = {
+        java = {
+            configuration = {
+                runtimes = {
+                    {
+                        name = "JavaSE-1.8",
+                        path = vim.env.JDK_HOME,
+                    },
+                    {
+                        name = "JavaSE-17",
+                        path = vim.env.JDK_HOME,
+                    },
+                    {
+                        name = "JavaSE-21",
+                        path = vim.env.JDK_HOME,
+                    },
+                }
+            }
+        }
+    }
+})
